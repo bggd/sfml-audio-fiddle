@@ -9,6 +9,8 @@ install:
 build_script:
   - 7z x CSFML-2.3-windows-64-bit.zip CSFML\bin
   - set PATH=%PATH%;CSFML\bin
+  
+  - set PATH=C:\Ruby%ruby_version%\bin;%PATH%
   - ruby -v
   - ruby -Ilib test/test-sfml-audio.rb
 
