@@ -5,11 +5,11 @@ cache:
 
 install:
   - ps: (new-object net.webclient).DownloadFile('http://www.sfml-dev.org/files/CSFML-2.3-windows-64-bit.zip', 'CSFML-2.3-windows-64-bit.zip')
-  - ps: dir
-  - ps: 7z.exe x .\CSFML-2.3-windows-64-bit.zip
 
 build_script:
-  set PATH=%PATH%;CSFML\bin
-  ruby -v
-  ruby -Ilib test/test-sfml-audio.rb
+  - dir
+  - 7z x CSFML-2.3-windows-64-bit.zip
+  - set PATH=%PATH%;CSFML\bin
+  - ruby -v
+  - ruby -Ilib test/test-sfml-audio.rb
 
