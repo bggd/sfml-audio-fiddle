@@ -1,7 +1,9 @@
 # sfml-audio-fiddle
+[![Gem Version](https://badge.fury.io/rb/sfml-audio-fiddle.svg)](http://badge.fury.io/rb/sfml-audio-fiddle)
+
 fiddle(ruby's FFI) binding for SFML2 Audio functions.
 
-#require csfml-audio2 and openal
+#require csfml-audio and openal
 download http://www.sfml-dev.org/download/csfml/
 
 #example
