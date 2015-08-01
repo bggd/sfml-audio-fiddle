@@ -85,14 +85,22 @@ class SFML::Sound
       SFMLImporter.sfSound_destroy(id)
     }
   end
+
   attr_reader :sound
+  def failed? ; @failed end
+
   def initialize(buffer=nil)
     @sound = SFMLImporter.sfSound_create()
-    @buffer = buffer
-    if buffer
-      SFMLImporter.sfSound_setBuffer(@sound, buffer.buffer)
+    @failed = @sound.null?
+    if @failed
+      return
+    else
+      @buffer = buffer
+      if buffer
+        SFMLImporter.sfSound_setBuffer(@sound, buffer.buffer)
+      end
+      ObjectSpace.define_finalizer @sound, SFML::Sound.dtor
     end
-    ObjectSpace.define_finalizer @sound, SFML::Sound.dtor
   end
   def initialize_copy(obj)
     @sound = SFMLImporter.sfSound_copy(obj.sound)
