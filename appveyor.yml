@@ -1,0 +1,14 @@
+clone_depth: 1
+
+cache:
+  - CSFML
+
+install:
+  - ps: (new-object net.webclient).DownloadFile('http://www.sfml-dev.org/files/CSFML-2.3-windows-64-bit.zip', 'CSFML-2.3-windows-64-bit.zip')
+  - 7z x CSFML-2.3-windows-64-bit.zip
+
+build_script:
+  set PATH=%PATH%;CSFML\bin
+  ruby -v
+  ruby -Ilib test/test-sfml-audio.rb
+
