@@ -69,6 +69,7 @@ class SFML::SoundBuffer
                 true
               else
                 ObjectSpace.define_finalizer @buffer, SFML::SoundBuffer.dtor
+                false
               end
   end
   def get_duration
