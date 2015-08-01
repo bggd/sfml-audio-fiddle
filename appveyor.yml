@@ -1,19 +1,19 @@
-clone_depth: 1
+#clone_depth: 1
 
-cache:
-  - CSFML-2.3-windows-64-bit.zip
+#cache:
+#  - CSFML-2.3-windows-64-bit.zip
 
-install:
-  - appveyor DownloadFile "http://www.sfml-dev.org/files/CSFML-2.3-windows-64-bit.zip" -FileName "CSFML-2.3-windows-64-bit.zip"
+#install:
+#  - appveyor DownloadFile "http://www.sfml-dev.org/files/CSFML-2.3-windows-64-bit.zip" -FileName "CSFML-2.3-windows-64-bit.zip"
 
-build_script:
-  - 7z x CSFML-2.3-windows-64-bit.zip CSFML\bin
-  - set PATH=%PATH%;CSFML\bin
+#build_script:
+#  - 7z x CSFML-2.3-windows-64-bit.zip CSFML\bin
+#  - set PATH=%PATH%;CSFML\bin
   
-  - set PATH=C:\Ruby%ruby_version%\bin;%PATH%
-  - ruby -v
-  - ruby -Ilib test/test-sfml-audio.rb
+#  - set PATH=C:\Ruby%ruby_version%\bin;%PATH%
+#  - ruby -v
+#  - ruby -Ilib test/test-sfml-audio.rb
 
-environment:
-  matrix:
-    - ruby_version: 22-x64
+#environment:
+#  matrix:
+#    - ruby_version: 22-x64
