@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'sfml-audio'
+  s.name        = 'sfml-audio-fiddle'
   s.version     = '0.0.0'
   s.date        = '2015-07-31'
 
