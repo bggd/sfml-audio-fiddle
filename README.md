@@ -66,6 +66,7 @@ sound.get_status #=> :stopped or :playing or :paused
 
 music = Music.new filename
 music.failed?
+music.get_duration
 music.set_volume 0..100
 music.get_volume
 music.set_loop true_or_false
