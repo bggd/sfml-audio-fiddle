@@ -44,12 +44,12 @@ end
 
 ```ruby
 
-buffer = SoundBuffer.new filename
+buffer = SFML::SoundBuffer.new filename
 buffer.failed?
 buffer.get_duration #=> length of sound buffer as seconds
 
 
-sound = Sound.new buffer
+sound = SFML::Sound.new buffer
 sound.failed?
 sound.set_volume 0..100
 sound.get_volume
@@ -66,7 +66,7 @@ sound.pause
 sound.stop
 sound.get_status #=> :stopped or :playing or :paused
 
-music = Music.new filename
+music = SFML::Music.new filename
 music.failed?
 music.get_duration
 music.set_volume 0..100
