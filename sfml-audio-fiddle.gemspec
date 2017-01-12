@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'sfml-audio-fiddle'
-  s.version     = '0.0.0'
-  s.date        = '2015-07-31'
+  s.version     = '0.1.0'
+  s.date        = '2017-01-12'
 
   s.summary     = 'Ruby binding for SFML2 Audio'
   s.description = 'Ruby binding for SFML2 Audio'
@@ -12,4 +12,3 @@ Gem::Specification.new do |s|
 
   s.files       = ['lib/sfml/audio.rb']
 end
-
