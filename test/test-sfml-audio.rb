@@ -51,5 +51,3 @@ class TestSound < TestSoundBuffer
     refute @sound.get_loop
   end
 end
-
-

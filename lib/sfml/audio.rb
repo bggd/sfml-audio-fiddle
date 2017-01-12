@@ -226,4 +226,3 @@ class SFML::Music
     SFMLImporter.sfMusic_getVolume(@music)
   end
 end
-
