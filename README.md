@@ -15,7 +15,6 @@ require 'sfml/audio'
 
 
 buffer = SFML::SoundBuffer.new 'sfx.wav'
-return if buffer.failed?
 
 sound = SFML::Sound.new buffer
 sound.play
@@ -28,7 +27,6 @@ sound.play
 require 'sfml/audio'
 
 music = SFML::Music.new 'bgm.ogg'
-return if music.failed?
 
 puts "bgm.ogg length: #{music.get_duration}"
 
@@ -45,12 +43,10 @@ end
 ```ruby
 
 buffer = SFML::SoundBuffer.new filename
-buffer.failed?
 buffer.get_duration #=> length of sound buffer as seconds
 
 
 sound = SFML::Sound.new buffer
-sound.failed?
 sound.set_volume 0..100
 sound.get_volume
 sound.set_loop true_or_false
@@ -67,7 +63,6 @@ sound.stop
 sound.get_status #=> :stopped or :playing or :paused
 
 music = SFML::Music.new filename
-music.failed?
 music.get_duration
 music.set_volume 0..100
 music.get_volume
