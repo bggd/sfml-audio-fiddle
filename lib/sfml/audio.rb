@@ -61,16 +61,11 @@ class SFML::SoundBuffer
   end
 
   attr_reader :buffer
-  def failed? ; @failed end
 
   def initialize(filename)
     @buffer = SFMLImporter.sfSoundBuffer_createFromFile(filename)
-    @failed = if @buffer.null?
-                true
-              else
-                ObjectSpace.define_finalizer @buffer, SFML::SoundBuffer.dtor
-                false
-              end
+    raise"Couldn't load #{filename}" if @buffer.null?
+    ObjectSpace.define_finalizer @buffer, SFML::SoundBuffer.dtor
   end
   def get_duration
     SFMLImporter.sfSoundBuffer_getDuration(@buffer) / 1000000.0
@@ -87,20 +82,15 @@ class SFML::Sound
   end
 
   attr_reader :sound
-  def failed? ; @failed end
 
   def initialize(buffer=nil)
     @sound = SFMLImporter.sfSound_create()
-    @failed = @sound.null?
-    if @failed
-      return
-    else
-      @buffer = buffer
-      if buffer
-        SFMLImporter.sfSound_setBuffer(@sound, buffer.buffer)
-      end
-      ObjectSpace.define_finalizer @sound, SFML::Sound.dtor
+    raise "Failed create SFML::Sound" if @sound.null?
+    @buffer = buffer
+    if buffer
+      SFMLImporter.sfSound_setBuffer(@sound, buffer.buffer)
     end
+    ObjectSpace.define_finalizer @sound, SFML::Sound.dtor
   end
   def initialize_copy(obj)
     @sound = SFMLImporter.sfSound_copy(obj.sound)
@@ -166,16 +156,10 @@ class SFML::Music
     }
   end
 
-  def failed? ; @failed end
-
   def initialize(filename)
     @music = SFMLImporter.sfMusic_createFromFile(filename)
-    @failed = if @music.null?
-                true
-              else
-                ObjectSpace.define_finalizer @music, SFML::Music.dtor
-                false
-              end
+    raise "Couldn't load #{filename}" if @music.null?
+    ObjectSpace.define_finalizer @music, SFML::Music.dtor
   end
 
   def set_loop(b)

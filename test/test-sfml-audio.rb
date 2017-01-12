@@ -5,7 +5,7 @@ require 'sfml/audio'
 class TestSoundBuffer < Minitest::Test
   def setup
     @buffer = SFML::SoundBuffer.new 'test/resource/swish_3.wav'
-    refute @buffer.failed?
+    assert_kind_of SFML::SoundBuffer, @buffer
   end
 
   def test_get_duration
@@ -18,7 +18,7 @@ class TestSound < TestSoundBuffer
   def setup
     super
     @sound = SFML::Sound.new @buffer
-    refute @sound.failed?
+    assert_kind_of SFML::Sound, @sound
   end
 
   def test_play
